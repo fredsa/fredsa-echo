@@ -11,8 +11,9 @@ import javax.servlet.http.HttpServletResponse;
 @SuppressWarnings("serial")
 public class EchoServlet extends HttpServlet {
   private static final Logger logger = Logger.getLogger(EchoServlet.class.getName());
+  
   @Override
-  public void doGet(HttpServletRequest request, HttpServletResponse resp) throws IOException {
+  public void service(HttpServletRequest request, HttpServletResponse resp) throws IOException {
     resp.setContentType("text/plain");
 
     @SuppressWarnings("unchecked")
