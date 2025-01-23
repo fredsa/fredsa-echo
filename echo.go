@@ -70,22 +70,21 @@ func indexHandler(w http.ResponseWriter, r *http.Request) {
 		}
 	}
 
-	fmt.Println("--------------------------------------")
+	fmt.Fprintln(w, "--------------------------------------")
 
 	userLoggedIn := user.Current(ctx) != nil
-
 	fmt.Printf("userLoggedIn: %v\n", userLoggedIn)
 
 	if userLoggedIn {
 		currentUser := user.Current(ctx)
-		fmt.Printf("currentUser : %v\n", currentUser)
-		fmt.Printf("currentUser.Admin : %v\n", currentUser.Admin)
-		fmt.Printf("currentUser.AuthDomain : %v\n", currentUser.AuthDomain)
-		fmt.Printf("currentUser.ClientID, : %v\n", currentUser.ClientID)
-		fmt.Printf("currentUser.Email : %v\n", currentUser.Email)
-		fmt.Printf("currentUser.FederatedIdentity : %v\n", currentUser.FederatedIdentity)
-		fmt.Printf("currentUser.FederatedProvider : %v\n", currentUser.FederatedProvider)
-		fmt.Printf("currentUser.ID, : %v\n", currentUser.ID)
+		fmt.Fprintf(w, "currentUser : %v\n", currentUser)
+		fmt.Fprintf(w, "currentUser.Admin : %v\n", currentUser.Admin)
+		fmt.Fprintf(w, "currentUser.AuthDomain : %v\n", currentUser.AuthDomain)
+		fmt.Fprintf(w, "currentUser.ClientID, : %v\n", currentUser.ClientID)
+		fmt.Fprintf(w, "currentUser.Email : %v\n", currentUser.Email)
+		fmt.Fprintf(w, "currentUser.FederatedIdentity : %v\n", currentUser.FederatedIdentity)
+		fmt.Fprintf(w, "currentUser.FederatedProvider : %v\n", currentUser.FederatedProvider)
+		fmt.Fprintf(w, "currentUser.ID, : %v\n", currentUser.ID)
 	} else {
 		loginURL, err := user.LoginURL(ctx, r.URL.String())
 		if err != nil {
@@ -95,5 +94,5 @@ func indexHandler(w http.ResponseWriter, r *http.Request) {
 		}
 	}
 
-	fmt.Println("--------------------------------------")
+	fmt.Fprintln(w, "--------------------------------------")
 }
