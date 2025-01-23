@@ -1,8 +1,1 @@
-# App Engine SDK
-appengine-api-1.0-sdk-*.jar
-appengine-api-labs-*.jar
-appengine-jsr107cache-*.jar
-jsr107cache-1.1.jar
-
-# Compiled Java classes
-war/WEB-INF/classes/
+__debug_bin*

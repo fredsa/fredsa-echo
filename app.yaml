@@ -1,0 +1,10 @@
+# https://cloud.google.com/appengine/docs/standard/reference/app-yaml?tab=go
+runtime: go123
+
+# https://cloud.google.com/appengine/docs/standard/reference/app-yaml?tab=go#runtime_and_app_elements
+app_engine_apis: on
+
+handlers:
+- url: /.*
+  script: auto
+  secure: optional
